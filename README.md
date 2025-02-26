@@ -2,7 +2,8 @@
 This is my personalized book review website which shows my take on literature. I can write new reviews, update previous ones and delete reviews as well.
 It has no authentication added as of now so other users can also write their reviews here.
 I used OpenLibrary API for book covers and for isbn numbers handled at the backend
-Disclaimer: This API does not contain covers for more recent books
+# Disclaimer: 
+This API does not contain covers for more recent books or new versions of old books. In that case no cover will appear.
 
 ## Technologies Used  
 - Frontend: HTML, CSS, JavaScript  

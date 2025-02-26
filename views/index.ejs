@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <%- include("./partials/header.ejs") %>
+         
+        <div class="reviews">
+            <div class="heading">
+                <h2>Ratings & Reviews</h2>
+            </div>
+            <div class="books">
+                <!--/reviews is where reviews will be read-->
+                    <% books.forEach((book) => { %>
+                        <form action="/reviews" method="POST" class="book-form">
+                            
+                            <input type="hidden" name="id" value="<%= book.id %>">
+                            <button type="submit" class="book-button">
+                        
+                                <div class="book">
+                                    <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt=""
+                                    onerror="this.onerror=null; this.src='/images/placeholder.png';"
+                                    style="width: 150px; height: auto;">
+                                    <p><%= book.name %></p>
+                                </div>
+                            </button>
+                        </form>
+                   <%  }) %>
+            </div>
+        </div>
+        
+        <div class="end">
+            <div class="contain">
+                <div class="container">
+                    <h2>Add a Review</h2>
+                    <p>Creator's add a review corner</p>
+                </div>
+                <img src="/images/img2.png" alt="">
+            </div>
+            <div class="btn">
+                <a href="/add">
+                    <button>Add Review</button>
+                </a>
+            </div>
+        </div>
+
+        <%- include ("./partials/footer.ejs") %>
+    </div>
+</body>
+</html>

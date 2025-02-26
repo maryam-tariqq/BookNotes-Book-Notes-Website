@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Book</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+           
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .big-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .container-1 {
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container-1 label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .container-1 input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .container-1 input[type="text"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+        }
+
+        .container-1 textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .container-1 button {
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .big-container {
+                margin: 20px;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .container-1 {
+                padding: 20px;
+            }
+
+            .container-1 button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+    <div class="big-container">
+       
+
+        <div class="container-1">
+            <h2>Add a New Book</h2>
+            <form action="/add" method="POST">
+                <label for="name">Title</label>
+                <input type="text" name="name" placeholder="Enter the book title" required>
+
+                <label for="author">Author</label>
+                <input type="text" name="author" placeholder="Enter the author's name" required>
+
+                <label for="isbn">ISBN</label>
+                <input type="text" name="isbn" placeholder="Enter without spaces or hyphen: 9781234568901" required>
+
+                <label for="genre">Genre</label>
+                <select name="genre" required>
+                    <option value="" disabled selected>Select a Genre</option>
+                    <option value="non-fiction">Non-Fiction</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="thriller">Young Adult</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="self-help">Self Help</option>
+                </select>
+
+                <label for="rating">Rating</label>
+                <select name="rating" required>
+                    <option value="" disabled selected>Choose a Rating</option>
+                    <% for(let i = 1; i <= 10; i++) { %>
+                        <option value="<%= i %>"><%= i %></option>
+                    <% } %>
+                </select>
+
+                <label for="dated">Date of Review</label>
+                <input type="date" id="dated" name="dated" value="yyyy-mm-dd" min="2025-01-01" required>
+
+                <label for="review">Review</label>
+                <textarea name="review" placeholder="Write your review here..." required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        
+    </div>
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>

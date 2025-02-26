@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <%- include("./partials/header.ejs")%>
+        
+        <div class="reviews">
+            <div class="heading">
+                <h2><%= heading %></h2>
+            </div>
+            <div class="books">
+                <!--/reviews is where reviews will be read-->
+                    <% books.forEach((book) => { %>
+                        <form action="/reviews" method="POST" class="book-form">
+                            
+                            <input type="hidden" name="id" value="<%= book.id %>">
+                            <button type="submit" class="book-button">
+                        
+                                <div class="book">
+                                    <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="Book Cover"
+                                    onerror="this.onerror=null; this.src='/images/placeholder.png';"
+                                    style="width: 150px; height: auto;">
+                                    <p><%= book.name %></p>
+                                    <% if(book.rating) { %><p class="special">Rating: <%= book.rating%></p> <% } %>
+                                    <% if(book.dated) { %><p class="special">Dated: <%= book.dated%></p> <% } %>
+                                </div>
+                            </button>
+                        </form>
+                   <%  }) %>
+            </div>
+        </div>
+        <div class="end">
+            <div class="contain">
+                <div class="container">
+                    <h2>Add a Review</h2>
+                    <p>Creator's add a review corner</p>
+                </div>
+                <img src="/images/img2.png" alt="">
+            </div>
+            <div class="btn">
+                <a href="/add">
+                    <button>Add Review</button>
+                </a>
+            </div>
+        </div>
+        <%- include("./partials/footer.ejs")%>
+    </div>
+</body>
+</html>

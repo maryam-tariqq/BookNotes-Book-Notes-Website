@@ -1,0 +1,61 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: white;
+}
+h1{
+    font-size: 3rem;
+    margin-bottom: 0;
+    font-family: "Inconsolata", serif;
+    color: #395a67;
+}
+
+header em{
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 5px;
+    padding-bottom: 10px;
+}
+
+.website-name{
+    display: flex;
+    flex-direction: column;
+}
+.search-bar{
+    display: flex;
+    align-items: center;
+    background: #edf2f4;
+    border-radius: 30px;
+    padding: 5px 15px;
+    box-shadow: inset 0 2px 4px rgba(217, 22, 22, 0.1);
+
+}
+.search-bar input{
+    background: none;
+    border: 0;
+    padding: 10px 10px;
+    font-size: 16px;
+}
+.search-bar button{
+    border: 0;
+    font-size: 20px;
+}
+
+
+.container{
+    background-color: #EAE2C6;;
+}
+
+
+/*CSS for the footer*/
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    background-color: white;
+}
+footer p{
+    font-size: 13px;
+}

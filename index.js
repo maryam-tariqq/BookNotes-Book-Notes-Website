@@ -13,11 +13,11 @@ let booksSearch = [];
 
 
 const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "Library",
-  password: "123456",
-  port: 5432,
+  user: "your_db_username",
+  host: "your_db_host",
+  database: "your_db_name",
+  password: "your_db_password",
+  port: "port_number",
 });
 db.connect();
 
